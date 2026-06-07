@@ -1,50 +1,206 @@
-# Welcome to your Expo app 👋
+# DefenseShield Orbital Intelligence
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Mobile MVP em `React Native + Expo` para a Global Solution 2026.1 da FIAP, com foco em monitoramento orbital, prevenção de desastres e gestão de riscos com dados simulados.
 
-## Get started
+## Proposta de MVP
 
-1. Install dependencies
+O aplicativo funciona como a central mobile do projeto `DefenseShield Orbital Intelligence`. Ele reúne alertas simulados, regiões monitoradas, indicadores de risco e um fluxo de cadastro de ocorrências para demonstrar como uma plataforma inspirada na economia espacial poderia apoiar decisões rápidas na Terra e em cenários futuros, como bases lunares.
 
-   ```bash
-   npm install
-   ```
+Este MVP foi pensado para ser viável academicamente:
 
-2. Start the app
+- usa `Expo Router` para navegação
+- usa `Context API` para tema e dados globais
+- usa `useState` e `useEffect` em telas e providers
+- usa `AsyncStorage` para persistência local
+- usa gráficos próprios com `react-native-svg`
+- usa dados mockados, sem integrações complexas
 
-   ```bash
-   npx expo start
-   ```
+## Telas e funcionalidades
 
-In the output, you'll find options to open the app in a
+### `app/index.tsx`
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- apresenta o nome do projeto e o slogan
+- resume a solução do grupo
+- mostra cards com:
+  - áreas monitoradas
+  - alertas ativos
+  - risco médio
+  - sistemas autônomos ativos
+- oferece atalhos para `Dashboard` e `Simulation`
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### `app/dashboard.tsx`
 
-## Get a fresh project
+- mostra gráfico de alertas por tipo
+- mostra risco por região
+- mostra evolução de risco nos últimos dias
+- mostra cards de status `low`, `medium`, `high` e `critical`
 
-When you're ready, run:
+### `app/alerts.tsx`
 
-```bash
-npm run reset-project
+- lista alertas simulados
+- permite filtrar por `all`, `active` e `resolved`
+- permite marcar um alerta como resolvido
+- persiste os resolvidos no `AsyncStorage`
+
+### `app/monitoring.tsx`
+
+- exibe as regiões:
+  - Amazônia
+  - área costeira
+  - usina solar
+  - porto estratégico
+  - base lunar simulada
+- mostra status, temperatura, umidade, índice de risco, fonte e atualização
+- permite filtrar por `earth`, `critical-infrastructure` e `space`
+
+### `app/simulation.tsx`
+
+- traz formulário com validação
+- campos:
+  - nome da ocorrência
+  - tipo de risco
+  - região
+  - severidade
+  - descrição
+- salva o evento como novo alerta
+- persiste eventos criados no `AsyncStorage`
+
+### `app/settings.tsx`
+
+- alterna entre tema claro e escuro
+- persiste a preferência localmente
+- mostra visão do projeto
+- mostra os integrantes do grupo
+
+## Estrutura de pastas
+
+```text
+app/
+  _layout.tsx
+  index.tsx
+  dashboard.tsx
+  alerts.tsx
+  monitoring.tsx
+  simulation.tsx
+  settings.tsx
+components/
+  alert-card.tsx
+  bottom-nav.tsx
+  button.tsx
+  chart-section.tsx
+  filter-chip.tsx
+  form-field.tsx
+  metric-card.tsx
+  region-status-card.tsx
+  risk-card.tsx
+  screen-container.tsx
+constants/
+  theme.ts
+contexts/
+  defense-shield-context.tsx
+  theme-context.tsx
+data/
+  alerts.mock.ts
+  regions.mock.ts
+  riskMetrics.mock.ts
+types/
+  defense-shield.ts
+utils/
+  storage.ts
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Dados mockados
 
-## Learn more
+`data/alerts.mock.ts`
 
-To learn more about developing your project with Expo, look at the following resources:
+- queimadas com fonte satelital
+- enchentes com API climática
+- falha operacional com sensor IoT
+- anomalia climática com drone
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+`data/regions.mock.ts`
 
-## Join the community
+- regiões terrestres
+- infraestrutura crítica
+- ambiente espacial simulado
 
-Join our community of developers creating universal apps.
+`data/riskMetrics.mock.ts`
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- alertas por tipo
+- risco por região
+- tendência temporal
+- cards de severidade
+- integrantes do grupo
+
+## Fluxo de navegação
+
+1. Home apresenta a solução e os indicadores principais.
+2. Dashboard mostra a leitura executiva do risco.
+3. Alerts trata o fluxo operacional de incidentes.
+4. Monitoring detalha regiões e fontes simuladas.
+5. Simulation cria novas ocorrências.
+6. Settings centraliza preferências e contexto do projeto.
+
+O app usa uma barra inferior própria em todas as telas para manter navegação simples e direta.
+
+## Componentes principais
+
+- `ScreenContainer`: estrutura visual, animação de entrada e fundo temático
+- `BottomNav`: navegação com `Expo Router`
+- `MetricCard`: indicadores da Home
+- `RiskCard`: status por severidade
+- `AlertCard`: item de alerta com ação de resolver
+- `ChartSection`: gráficos de barras, distribuição e tendência
+- `RegionStatusCard`: bloco de monitoramento por região
+- `Button`, `FilterChip` e `FormField`: base reutilizável de interação
+
+## Bibliotecas usadas
+
+- `expo`
+- `expo-router`
+- `@expo/vector-icons`
+- `@react-native-async-storage/async-storage`
+- `react-native-svg`
+
+## Como cada requisito obrigatório foi atendido
+
+- `React Native + Expo`: projeto baseado em `expo ~54.0.34`
+- `Expo Router`: rotas em `app/` com `Stack` no `_layout.tsx`
+- `useState`: usado em filtros, formulário e controle de tema
+- `useEffect`: usado em animações, hidratação e persistência
+- `Context API`: `ThemeModeProvider` e `DefenseShieldProvider`
+- `AsyncStorage`: tema, alertas resolvidos e eventos simulados
+- `Formulário com validação`: tela `simulation.tsx`
+- `Dashboards/gráficos`: `ChartSection` com `react-native-svg`
+- `Componentização`: cards, botões, filtros, layout e gráficos desacoplados
+- `UI coerente com tema espacial`: paleta azul profunda, cartões de dashboard e linguagem de central orbital
+
+## Diferenciais entregues
+
+- `TypeScript`
+- tema claro/escuro
+- dados mockados estruturados
+- animação simples de entrada
+- persistência real do MVP
+
+## Observação importante
+
+Este projeto é um protótipo funcional acadêmico. Ele simula dados satelitais, sensores IoT, drones e recomendações automatizadas para demonstrar a proposta da solução sem depender de integrações reais complexas.
+
+## Integrantes
+
+- Vitor Bebiano Mulford | RM: 555026
+
+- Lorenzo Hayashi Mangini | RM: 554901
+
+- Milton Cezar Bacanieski | RM: 555206
+
+
+- Victório Maia Bastelli | RM: 554723
+
+## Execução
+
+```bash
+npm install
+npx expo start
+```

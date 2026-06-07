@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mobile_gs",
-    "slug": "mobile_gs",
+    "name": "DefenseShield Orbital Intelligence",
+    "slug": "defenseshield-orbital-intelligence",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
