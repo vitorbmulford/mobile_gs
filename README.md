@@ -244,49 +244,47 @@ utils/
 
 ## Home
 
-> Inserir screenshot da tela Home
+<img width="739" height="1600" alt="WhatsApp Image 2026-06-07 at 3 09 15 PM" src="https://github.com/user-attachments/assets/d0cf7456-9a0c-46c5-989c-8548f5380edd" />
 
-![Home](./docs/home.png)
+<img width="739" height="1600" alt="WhatsApp Image 2026-06-07 at 3 09 16 PM" src="https://github.com/user-attachments/assets/2d93ea00-d9cf-41a3-a7bf-e3ac43dee558" />
 
 ---
 
 ## Dashboard Executivo
 
-> Inserir screenshot do Dashboard Executivo
+<img width="739" height="1600" alt="WhatsApp Image 2026-06-07 at 3 09 16 PM (1)" src="https://github.com/user-attachments/assets/8098102c-7ad4-4721-a4e1-b54df95a97ec" />
 
-![Dashboard Executivo](./docs/dashboard-executive.png)
+<img width="739" height="1600" alt="WhatsApp Image 2026-06-07 at 3 09 16 PM (2)" src="https://github.com/user-attachments/assets/08288f8a-4ef5-47bd-82d9-af41231cf50d" />
 
 ---
 
 ## Dashboard Ambiental
 
-> Inserir screenshot do Dashboard Ambiental
+<img width="739" height="1600" alt="WhatsApp Image 2026-06-07 at 3 09 16 PM (3)" src="https://github.com/user-attachments/assets/1c938579-f80b-409d-bd43-debb1bbfe958" />
 
-![Dashboard Ambiental](./docs/dashboard-environmental.png)
+<img width="739" height="1600" alt="WhatsApp Image 2026-06-07 at 3 09 17 PM" src="https://github.com/user-attachments/assets/efc13798-7b51-4eac-bdd8-8ec304813b15" />
 
 ---
 
 ## Alertas
 
-> Inserir screenshot da tela de Alertas
-
-![Alertas](./docs/alerts.png)
+<img width="739" height="1600" alt="WhatsApp Image 2026-06-07 at 3 09 17 PM (1)" src="https://github.com/user-attachments/assets/e8c58e81-238a-4d68-bb11-75a06d97ab52" />
 
 ---
 
 ## Monitoramento
 
-> Inserir screenshot da tela de Monitoramento
+<img width="739" height="1600" alt="WhatsApp Image 2026-06-07 at 3 09 17 PM (2)" src="https://github.com/user-attachments/assets/4363449a-9eef-4f9e-a8e5-66925b6de8c2" />
 
-![Monitoramento](./docs/monitoring.png)
+<img width="739" height="1600" alt="WhatsApp Image 2026-06-07 at 3 09 17 PM (2)" src="https://github.com/user-attachments/assets/810eb239-27b2-4ea8-a4fa-a43c933d50cb" />
 
 ---
 
 ## Simulação
 
-> Inserir screenshot da tela de Simulação
+<img width="739" height="1600" alt="WhatsApp Image 2026-06-07 at 3 09 17 PM (4)" src="https://github.com/user-attachments/assets/a84f5fb1-adb0-4c0e-9cd2-f5327229c4ed" />
 
-![Simulação](./docs/simulation.png)
+<img width="739" height="1600" alt="WhatsApp Image 2026-06-07 at 3 09 17 PM (5)" src="https://github.com/user-attachments/assets/b056405d-b2c3-4f23-9e43-281ca84e1166" />
 
 ---
 
