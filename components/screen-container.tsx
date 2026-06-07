@@ -77,7 +77,8 @@ export function ScreenContainer({
             contentContainerStyle,
             { backgroundColor: 'transparent' },
           ]}
-          showsVerticalScrollIndicator={false}>
+          showsVerticalScrollIndicator={false}
+          style={styles.scrollView}>
           {(eyebrow || title || subtitle) && (
             <View style={styles.header}>
               {eyebrow ? (
@@ -106,11 +107,14 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
   },
+  scrollView: {
+    flex: 1,
+  },
   scrollContent: {
     gap: 18,
     paddingHorizontal: 20,
-    paddingTop: 18,
-    paddingBottom: 20,
+    paddingTop: 88,
+    paddingBottom: 28,
   },
   header: {
     gap: 8,

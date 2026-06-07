@@ -28,6 +28,13 @@
     "plugins": [
       "expo-router",
       [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Permita que o DefenseShield Orbital Intelligence acesse sua localizacao para monitoramento regional.",
+          "locationAlwaysAndWhenInUsePermission": "Permita que o DefenseShield Orbital Intelligence acesse sua localizacao para monitoramento regional."
+        }
+      ],
+      [
         "expo-splash-screen",
         {
           "image": "./assets/images/splash-icon.png",

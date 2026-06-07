@@ -1,84 +1,69 @@
 # DefenseShield Orbital Intelligence
 
-Mobile MVP em `React Native + Expo` para a Global Solution 2026.1 da FIAP, com foco em monitoramento orbital, prevenção de desastres e gestão de riscos com dados simulados.
+O DefenseShield Orbital Intelligence e um MVP mobile desenvolvido com `React Native + Expo` para a Global Solution 2026.1 da FIAP. O aplicativo simula uma central orbital de monitoramento que consolida riscos ambientais, operacionais e territoriais inspirados em tecnologias da industria espacial.
 
-## Proposta de MVP
+## Objetivo da Solucao
 
-O aplicativo funciona como a central mobile do projeto `DefenseShield Orbital Intelligence`. Ele reúne alertas simulados, regiões monitoradas, indicadores de risco e um fluxo de cadastro de ocorrências para demonstrar como uma plataforma inspirada na economia espacial poderia apoiar decisões rápidas na Terra e em cenários futuros, como bases lunares.
+Governos, empresas e organizacoes precisam monitorar grandes volumes de dados vindos de satelites, sensores IoT, drones, servicos climaticos e sistemas autonomos. Quando essas informacoes ficam dispersas, a tomada de decisao se torna mais lenta, a resposta a riscos perde eficiencia e aumentam os impactos operacionais, ambientais e economicos.
 
-Este MVP foi pensado para ser viável academicamente:
+O DefenseShield Orbital Intelligence atua como uma plataforma central de monitoramento e apoio a decisao. Neste MVP academico, o app concentra alertas simulados, regioes monitoradas, dashboards, geolocalizacao e recomendacoes operacionais para demonstrar como uma solucao inspirada na economia espacial pode apoiar a prevencao e a resposta a incidentes na Terra e em cenarios futuros de operacao orbital.
 
-- usa `Expo Router` para navegação
-- usa `Context API` para tema e dados globais
-- usa `useState` e `useEffect` em telas e providers
-- usa `AsyncStorage` para persistência local
-- usa gráficos próprios com `react-native-svg`
-- usa dados mockados, sem integrações complexas
+## Funcionalidades
 
-## Telas e funcionalidades
+- Dashboard Executivo
+- Dashboard Ambiental
+- Gestao de alertas com resolucao local
+- Monitoramento de regioes com filtros
+- Cadastro de ocorrencias com validacao
+- Geolocalizacao nativa com Expo Location
+- Tema claro e escuro
+- Persistencia local com AsyncStorage
 
-### `app/index.tsx`
+## Tecnologias Utilizadas
 
-- apresenta o nome do projeto e o slogan
-- resume a solução do grupo
-- mostra cards com:
-  - áreas monitoradas
-  - alertas ativos
-  - risco médio
-  - sistemas autônomos ativos
-- oferece atalhos para `Dashboard` e `Simulation`
+- React Native
+- Expo
+- Expo Router
+- TypeScript
+- Context API
+- AsyncStorage
+- React Native SVG
+- Expo Location
 
-### `app/dashboard.tsx`
+## Relacao com a Industria Espacial
 
-- mostra gráfico de alertas por tipo
-- mostra risco por região
-- mostra evolução de risco nos últimos dias
-- mostra cards de status `low`, `medium`, `high` e `critical`
+O projeto e inspirado diretamente em conceitos da industria espacial:
 
-### `app/alerts.tsx`
+- dados satelitais para observacao territorial
+- sensoriamento remoto para analise ambiental
+- inteligencia artificial como apoio a decisao
+- sistemas autonomos, como drones e rovers
+- economia espacial, em que tecnologias orbitais geram valor pratico na Terra
 
-- lista alertas simulados
-- permite filtrar por `all`, `active` e `resolved`
-- permite marcar um alerta como resolvido
-- persiste os resolvidos no `AsyncStorage`
+O MVP demonstra como tecnologias associadas ao setor espacial podem gerar beneficios concretos para defesa civil, monitoramento de infraestrutura critica e gestao de riscos climaticos.
 
-### `app/monitoring.tsx`
+## ODS Relacionados
 
-- exibe as regiões:
-  - Amazônia
-  - área costeira
-  - usina solar
-  - porto estratégico
-  - base lunar simulada
-- mostra status, temperatura, umidade, índice de risco, fonte e atualização
-- permite filtrar por `earth`, `critical-infrastructure` e `space`
+### ODS 9 - Industria, Inovacao e Infraestrutura
 
-### `app/simulation.tsx`
+O aplicativo propoe uma plataforma digital de monitoramento voltada a infraestrutura mais inteligente, resiliente e inovadora.
 
-- traz formulário com validação
-- campos:
-  - nome da ocorrência
-  - tipo de risco
-  - região
-  - severidade
-  - descrição
-- salva o evento como novo alerta
-- persiste eventos criados no `AsyncStorage`
+### ODS 11 - Cidades e Comunidades Sustentaveis
 
-### `app/settings.tsx`
+A solucao ajuda a antecipar ameacas ambientais e melhorar a preparacao de cidades, portos e territorios sensiveis.
 
-- alterna entre tema claro e escuro
-- persiste a preferência localmente
-- mostra visão do projeto
-- mostra os integrantes do grupo
+### ODS 13 - Acao Contra a Mudanca Global do Clima
 
-## Estrutura de pastas
+O MVP enfatiza monitoramento climatico, indicadores de queimadas e enchentes e visibilidade antecipada de riscos para prevencao de desastres.
+
+## Estrutura do Projeto
 
 ```text
 app/
   _layout.tsx
   index.tsx
   dashboard.tsx
+  environmental-dashboard.tsx
   alerts.tsx
   monitoring.tsx
   simulation.tsx
@@ -88,14 +73,14 @@ components/
   bottom-nav.tsx
   button.tsx
   chart-section.tsx
+  dashboard-switcher.tsx
   filter-chip.tsx
   form-field.tsx
   metric-card.tsx
+  orbital-radar.tsx
   region-status-card.tsx
   risk-card.tsx
   screen-container.tsx
-constants/
-  theme.ts
 contexts/
   defense-shield-context.tsx
   theme-context.tsx
@@ -109,98 +94,92 @@ utils/
   storage.ts
 ```
 
-## Dados mockados
+## Dashboards
 
-`data/alerts.mock.ts`
+### Dashboard Executivo
 
-- queimadas com fonte satelital
-- enchentes com API climática
-- falha operacional com sensor IoT
-- anomalia climática com drone
+Voltado para leitura rapida e tomada de decisao, com:
 
-`data/regions.mock.ts`
+- alertas ativos
+- alertas resolvidos
+- risco medio geral
+- sistemas autonomos em operacao
+- distribuicao de alertas por tipo
+- evolucao temporal de riscos e incidentes
 
-- regiões terrestres
-- infraestrutura crítica
-- ambiente espacial simulado
+### Dashboard Ambiental
 
-`data/riskMetrics.mock.ts`
+Voltado para monitoramento climatico e ambiental, com:
 
-- alertas por tipo
-- risco por região
-- tendência temporal
-- cards de severidade
-- integrantes do grupo
+- temperatura media
+- umidade media
+- indice de queimadas
+- indice de enchentes
+- regiao mais critica
+- comparacao de risco entre regioes
+- tendencia ambiental
+- ranking das areas monitoradas
 
-## Fluxo de navegação
+## Recurso Nativo do Dispositivo
 
-1. Home apresenta a solução e os indicadores principais.
-2. Dashboard mostra a leitura executiva do risco.
-3. Alerts trata o fluxo operacional de incidentes.
-4. Monitoring detalha regiões e fontes simuladas.
-5. Simulation cria novas ocorrências.
-6. Settings centraliza preferências e contexto do projeto.
+A tela de Monitoramento integra `expo-location` para demonstrar uso de recurso nativo do dispositivo:
 
-O app usa uma barra inferior própria em todas as telas para manter navegação simples e direta.
+- solicita permissao em primeiro plano
+- obtem latitude e longitude
+- tenta identificar cidade e regiao por geocodificacao reversa
+- usa as coordenadas como fallback quando necessario
 
-## Componentes principais
+Isso reforca a aderencia tecnica a rubrica sem adicionar complexidade desnecessaria ao MVP.
 
-- `ScreenContainer`: estrutura visual, animação de entrada e fundo temático
-- `BottomNav`: navegação com `Expo Router`
-- `MetricCard`: indicadores da Home
-- `RiskCard`: status por severidade
-- `AlertCard`: item de alerta com ação de resolver
-- `ChartSection`: gráficos de barras, distribuição e tendência
-- `RegionStatusCard`: bloco de monitoramento por região
-- `Button`, `FilterChip` e `FormField`: base reutilizável de interação
+## Home e Experiencia Visual
 
-## Bibliotecas usadas
+A Home foi reforcada para melhorar apresentacao, impacto visual e percepcao de acabamento:
 
-- `expo`
-- `expo-router`
-- `@expo/vector-icons`
-- `@react-native-async-storage/async-storage`
-- `react-native-svg`
+- radar orbital animado
+- status geral do sistema
+- nivel de ameaca resumido
+- ultimos alertas criticos
+- atalhos para os dois dashboards
 
-## Como cada requisito obrigatório foi atendido
+## Persistencia e Escopo de MVP
 
-- `React Native + Expo`: projeto baseado em `expo ~54.0.34`
-- `Expo Router`: rotas em `app/` com `Stack` no `_layout.tsx`
-- `useState`: usado em filtros, formulário e controle de tema
-- `useEffect`: usado em animações, hidratação e persistência
-- `Context API`: `ThemeModeProvider` e `DefenseShieldProvider`
-- `AsyncStorage`: tema, alertas resolvidos e eventos simulados
-- `Formulário com validação`: tela `simulation.tsx`
-- `Dashboards/gráficos`: `ChartSection` com `react-native-svg`
-- `Componentização`: cards, botões, filtros, layout e gráficos desacoplados
-- `UI coerente com tema espacial`: paleta azul profunda, cartões de dashboard e linguagem de central orbital
+O projeto mantem o escopo academico de forma intencional:
 
-## Diferenciais entregues
+- sem integracao real com AWS
+- sem IA real
+- sem satelites reais
+- sem drones reais
+- sem backend complexo
 
-- `TypeScript`
-- tema claro/escuro
-- dados mockados estruturados
-- animação simples de entrada
-- persistência real do MVP
+Todos os dados permanecem simulados, estruturados localmente e persistidos apenas quando necessario com AsyncStorage.
 
-## Observação importante
+## Como a Rubrica Obrigatoria Foi Atendida
 
-Este projeto é um protótipo funcional acadêmico. Ele simula dados satelitais, sensores IoT, drones e recomendações automatizadas para demonstrar a proposta da solução sem depender de integrações reais complexas.
+- `React Native + Expo`: implementado com Expo SDK 54
+- `Expo Router`: rotas baseadas em arquivos dentro de `app/`
+- `useState`: usado em filtros, geolocalizacao, formulario e interacoes de interface
+- `useEffect`: usado em hidratacao de tema, persistencia e animacao do radar
+- `Context API`: providers globais para tema e dados da solucao
+- `AsyncStorage`: persistencia de tema, alertas resolvidos e eventos criados
+- `Formulario com validacao`: implementado em `app/simulation.tsx`
+- `Dashboards / graficos`: dois dashboards distintos com graficos em `react-native-svg`
+- `Componentizacao`: blocos reutilizaveis em toda a interface
+- `UI coerente com tema espacial`: visual de central orbital, radar, indicadores e linguagem de monitoramento
 
 ## Integrantes
 
-- Vitor Bebiano Mulford | RM: 555026
+- Vitor Bebiano Mulford | RM 555026
+- Lorenzo Hayashi Mangini | RM 554901
+- Milton Cezar Bacanieski | RM 555206
+- Victorio Maia Bastelli | RM 554723
 
-- Lorenzo Hayashi Mangini | RM: 554901
-
-- Milton Cezar Bacanieski | RM: 555206
-
-
-- Victório Maia Bastelli | RM: 554723
-
-## Execução
+## Instalacao e Execucao
 
 ```bash
 npm install
 npx expo start
 ```
+
+## Observacao
+
+Este projeto e um prototipo funcional academico. Ele simula sinais satelitais, monitoramento ambiental, sistemas autonomos e recomendacoes inspiradas em inteligencia para ilustrar um cenario integrado da Global Solution com um MVP solido, funcional e realista.

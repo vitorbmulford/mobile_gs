@@ -10,9 +10,9 @@ export default function SettingsScreen() {
 
   return (
     <ScreenContainer
-      eyebrow="Command preferences"
-      subtitle="Local preferences and project context for the academic MVP."
-      title="Settings">
+      eyebrow="Preferencias de comando"
+      subtitle="Preferencias locais e contexto do projeto para o MVP academico."
+      title="Configuracoes">
       <View
         style={[
           styles.card,
@@ -20,9 +20,9 @@ export default function SettingsScreen() {
         ]}>
         <View style={styles.rowBetween}>
           <View style={styles.copy}>
-            <Text style={[styles.cardTitle, { color: theme.colors.text }]}>Theme mode</Text>
+            <Text style={[styles.cardTitle, { color: theme.colors.text }]}>Modo de tema</Text>
             <Text style={[styles.cardText, { color: theme.colors.textMuted }]}>
-              Toggle between light and dark command-center layouts. Your choice is stored locally.
+              Alterne entre os modos claro e escuro da central de comando. Sua escolha fica salva localmente.
             </Text>
           </View>
           <Switch
@@ -39,11 +39,11 @@ export default function SettingsScreen() {
           styles.card,
           { backgroundColor: theme.colors.surface, borderColor: theme.colors.border },
         ]}>
-        <Text style={[styles.cardTitle, { color: theme.colors.text }]}>Project overview</Text>
+        <Text style={[styles.cardTitle, { color: theme.colors.text }]}>Visao do projeto</Text>
         <Text style={[styles.cardText, { color: theme.colors.textMuted }]}>
-          DefenseShield Orbital Intelligence is an academic prototype that simulates satellite data,
-          IoT sensors, drones, and AI-driven recommendations for disaster prevention and orbital
-          operations planning.
+          O DefenseShield Orbital Intelligence e um prototipo academico que simula dados satelitais,
+          sensores IoT, drones e recomendacoes orientadas por inteligencia para prevencao de desastres
+          e planejamento de operacoes orbitais.
         </Text>
       </View>
 
@@ -52,12 +52,15 @@ export default function SettingsScreen() {
           styles.card,
           { backgroundColor: theme.colors.surface, borderColor: theme.colors.border },
         ]}>
-        <Text style={[styles.cardTitle, { color: theme.colors.text }]}>Team</Text>
+        <Text style={[styles.cardTitle, { color: theme.colors.text }]}>Integrantes</Text>
         <View style={styles.teamList}>
           {teamMembersMock.map((member) => (
             <View key={member.name} style={styles.member}>
               <Text style={[styles.memberName, { color: theme.colors.text }]}>{member.name}</Text>
-              <Text style={[styles.memberRole, { color: theme.colors.textMuted }]}>{member.role}</Text>
+              <Text style={[styles.memberRole, { color: theme.colors.textMuted }]}>
+                {member.rm ? `RM ${member.rm} | ` : ''}
+                {member.role}
+              </Text>
             </View>
           ))}
         </View>

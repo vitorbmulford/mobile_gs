@@ -10,9 +10,17 @@ interface DefenseShieldContextValue {
   alerts: AlertItem[];
   regions: RegionStatus[];
   activeAlerts: AlertItem[];
+  resolvedAlerts: AlertItem[];
+  criticalAlerts: AlertItem[];
   averageRisk: number;
+  averageTemperature: number;
+  averageHumidity: number;
+  wildfireIndex: number;
+  floodIndex: number;
   autonomousSystemsActive: number;
   monitoredAreas: number;
+  systemStatus: 'Operacional' | 'Atencao';
+  threatLevel: 'Baixo' | 'Medio' | 'Alto';
   markAlertResolved: (alertId: string) => void;
   createSimulationEvent: (formData: SimulationFormData) => void;
 }
@@ -76,17 +84,39 @@ export function DefenseShieldProvider({ children }: React.PropsWithChildren) {
 
   const value = useMemo(() => {
     const activeAlerts = alerts.filter((alert) => !alert.resolved);
+    const resolvedAlerts = alerts.filter((alert) => alert.resolved);
+    const criticalAlerts = activeAlerts.filter((alert) => alert.riskLevel === 'critical');
     const averageRisk = Math.round(
       regionsMock.reduce((sum, region) => sum + region.riskIndex, 0) / regionsMock.length
     );
+    const averageTemperature = Math.round(
+      regionsMock.reduce((sum, region) => sum + region.temperature, 0) / regionsMock.length
+    );
+    const averageHumidity = Math.round(
+      regionsMock.reduce((sum, region) => sum + region.humidity, 0) / regionsMock.length
+    );
+    const wildfireIndex = 82;
+    const floodIndex = 74;
+    const systemStatus: DefenseShieldContextValue['systemStatus'] =
+      criticalAlerts.length > 2 ? 'Atencao' : 'Operacional';
+    const threatLevel: DefenseShieldContextValue['threatLevel'] =
+      averageRisk >= 75 ? 'Alto' : averageRisk >= 50 ? 'Medio' : 'Baixo';
 
     return {
       alerts,
       regions: regionsMock,
       activeAlerts,
+      resolvedAlerts,
+      criticalAlerts,
       averageRisk,
+      averageTemperature,
+      averageHumidity,
+      wildfireIndex,
+      floodIndex,
       autonomousSystemsActive: 12,
       monitoredAreas: regionsMock.length,
+      systemStatus,
+      threatLevel,
       markAlertResolved: (alertId: string) => {
         setAlerts((currentAlerts) =>
           currentAlerts.map((alert) =>
@@ -101,7 +131,7 @@ export function DefenseShieldProvider({ children }: React.PropsWithChildren) {
           eventType: formData.eventType as AlertItem['eventType'],
           region: formData.region,
           riskLevel: formData.severity as AlertItem['riskLevel'],
-          source: 'IoT Sensor',
+          source: 'Sensor IoT',
           timestamp: new Date().toLocaleString('en-GB', {
             day: '2-digit',
             month: '2-digit',
@@ -109,7 +139,7 @@ export function DefenseShieldProvider({ children }: React.PropsWithChildren) {
             hour: '2-digit',
             minute: '2-digit',
           }),
-          recommendation: 'Validate the event, prioritize operator review, and track escalation.',
+          recommendation: 'Validar a ocorrencia, priorizar revisao do operador e acompanhar a escalada.',
           description: formData.description.trim(),
           resolved: false,
           origin: 'simulation',

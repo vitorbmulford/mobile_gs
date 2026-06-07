@@ -6,18 +6,19 @@ import { Button } from '@/components/button';
 import { FilterChip } from '@/components/filter-chip';
 import { FormField } from '@/components/form-field';
 import { ScreenContainer } from '@/components/screen-container';
+import { getRiskToneLabel } from '@/constants/theme';
 import { useDefenseShield } from '@/contexts/defense-shield-context';
 import { useAppTheme } from '@/contexts/theme-context';
 import type { AlertType, RiskLevel, SimulationFormData } from '@/types/defense-shield';
 
-const eventTypes: AlertType[] = ['Wildfire', 'Flood', 'Operational Failure', 'Climate Anomaly'];
+const eventTypes: AlertType[] = ['Queimada', 'Enchente', 'Falha Operacional', 'Anomalia Climatica'];
 const severityLevels: RiskLevel[] = ['low', 'medium', 'high', 'critical'];
 const regionOptions = [
-  'Amazon Rainforest',
-  'Coastal Defense Zone',
-  'Orbital Solar Plant',
-  'Strategic Port',
-  'Simulated Lunar Base',
+  'Amazonia',
+  'Area Costeira',
+  'Usina Solar Orbital',
+  'Porto Estrategico',
+  'Base Lunar Simulada',
 ];
 
 const initialState: SimulationFormData = {
@@ -43,19 +44,19 @@ export default function SimulationScreen() {
     const nextErrors: Partial<Record<keyof SimulationFormData, string>> = {};
 
     if (!formData.occurrenceName.trim()) {
-      nextErrors.occurrenceName = 'Occurrence name is required.';
+      nextErrors.occurrenceName = 'O nome da ocorrencia e obrigatorio.';
     }
     if (!formData.eventType) {
-      nextErrors.eventType = 'Select a risk type.';
+      nextErrors.eventType = 'Selecione um tipo de risco.';
     }
     if (!formData.region) {
-      nextErrors.region = 'Select a monitored region.';
+      nextErrors.region = 'Selecione uma regiao monitorada.';
     }
     if (!formData.severity) {
-      nextErrors.severity = 'Select a severity level.';
+      nextErrors.severity = 'Selecione um nivel de severidade.';
     }
     if (!formData.description.trim()) {
-      nextErrors.description = 'Describe the simulated event.';
+      nextErrors.description = 'Descreva a ocorrencia simulada.';
     }
 
     setErrors(nextErrors);
@@ -74,9 +75,9 @@ export default function SimulationScreen() {
 
   return (
     <ScreenContainer
-      eyebrow="Mission simulation"
-      subtitle="Register new orbital incidents with validation and persist them locally."
-      title="Simulation / Event registration">
+      eyebrow="Simulacao de missao"
+      subtitle="Registre novas ocorrencias orbitais com validacao e persistencia local."
+      title="Simulacao / Cadastro de evento">
       <View
         style={[
           styles.panel,
@@ -84,13 +85,13 @@ export default function SimulationScreen() {
         ]}>
         <FormField
           error={errors.occurrenceName}
-          label="Occurrence name"
+          label="Nome da ocorrencia"
           onChangeText={(value) => setField('occurrenceName', value)}
-          placeholder="Example: Dust intrusion near habitat corridor"
+          placeholder="Exemplo: Intrusao de poeira no corredor do habitat"
           value={formData.occurrenceName}
         />
 
-        <Text style={[styles.sectionLabel, { color: theme.colors.text }]}>Risk type</Text>
+        <Text style={[styles.sectionLabel, { color: theme.colors.text }]}>Tipo de risco</Text>
         <View style={styles.chips}>
           {eventTypes.map((type) => (
             <FilterChip
@@ -105,7 +106,7 @@ export default function SimulationScreen() {
           <Text style={[styles.error, { color: theme.colors.critical }]}>{errors.eventType}</Text>
         ) : null}
 
-        <Text style={[styles.sectionLabel, { color: theme.colors.text }]}>Region</Text>
+        <Text style={[styles.sectionLabel, { color: theme.colors.text }]}>Regiao</Text>
         <View style={styles.chips}>
           {regionOptions.map((region) => (
             <FilterChip
@@ -120,12 +121,12 @@ export default function SimulationScreen() {
           <Text style={[styles.error, { color: theme.colors.critical }]}>{errors.region}</Text>
         ) : null}
 
-        <Text style={[styles.sectionLabel, { color: theme.colors.text }]}>Severity</Text>
+        <Text style={[styles.sectionLabel, { color: theme.colors.text }]}>Severidade</Text>
         <View style={styles.chips}>
           {severityLevels.map((level) => (
             <FilterChip
               key={level}
-              label={level}
+              label={getRiskToneLabel(level)}
               onPress={() => setField('severity', level)}
               selected={formData.severity === level}
             />
@@ -137,14 +138,14 @@ export default function SimulationScreen() {
 
         <FormField
           error={errors.description}
-          label="Description"
+          label="Descricao"
           multiline
           onChangeText={(value) => setField('description', value)}
-          placeholder="Explain what the system detected and why the event matters."
+          placeholder="Explique o que o sistema detectou e por que isso importa."
           value={formData.description}
         />
 
-        <Button label="Save simulation event" onPress={handleSubmit} />
+        <Button label="Salvar evento simulado" onPress={handleSubmit} />
       </View>
     </ScreenContainer>
   );

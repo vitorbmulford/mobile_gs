@@ -20,6 +20,7 @@ function RootNavigator() {
         }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="dashboard" />
+        <Stack.Screen name="environmental-dashboard" />
         <Stack.Screen name="alerts" />
         <Stack.Screen name="monitoring" />
         <Stack.Screen name="simulation" />

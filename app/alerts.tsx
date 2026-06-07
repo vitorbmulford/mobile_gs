@@ -28,18 +28,18 @@ export default function AlertsScreen() {
 
   return (
     <ScreenContainer
-      eyebrow="Incident feed"
-      subtitle="Resolve alerts and keep the command center synchronized through AsyncStorage."
-      title="Alerts">
+      eyebrow="Central de incidentes"
+      subtitle="Resolva alertas e mantenha a central sincronizada com persistencia local."
+      title="Alertas">
       <View style={styles.filters}>
-        <FilterChip label="All" onPress={() => setFilter('all')} selected={filter === 'all'} />
+        <FilterChip label="Todos" onPress={() => setFilter('all')} selected={filter === 'all'} />
         <FilterChip
-          label="Active"
+          label="Ativos"
           onPress={() => setFilter('active')}
           selected={filter === 'active'}
         />
         <FilterChip
-          label="Resolved"
+          label="Resolvidos"
           onPress={() => setFilter('resolved')}
           selected={filter === 'resolved'}
         />
@@ -51,10 +51,10 @@ export default function AlertsScreen() {
           { backgroundColor: theme.colors.surface, borderColor: theme.colors.border },
         ]}>
         <Text style={[styles.summaryTitle, { color: theme.colors.text }]}>
-          {filteredAlerts.length} alerts in the current filter
+          {filteredAlerts.length} alertas no filtro atual
         </Text>
         <Text style={[styles.summaryText, { color: theme.colors.textMuted }]}>
-          Each resolved item is persisted locally so the operational state survives app reloads.
+          Cada item resolvido fica salvo localmente para preservar o estado operacional do app.
         </Text>
       </View>
 

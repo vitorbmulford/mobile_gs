@@ -142,13 +142,13 @@ export function getRiskToneColor(level: RiskLevel, theme: AppTheme) {
 export function getRiskToneLabel(level: RiskLevel) {
   switch (level) {
     case 'low':
-      return 'Low';
+      return 'Baixo';
     case 'medium':
-      return 'Medium';
+      return 'Medio';
     case 'high':
-      return 'High';
+      return 'Alto';
     case 'critical':
-      return 'Critical';
+      return 'Critico';
     default:
       return level;
   }

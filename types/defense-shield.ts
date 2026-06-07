@@ -3,12 +3,12 @@ export type ThemeMode = 'light' | 'dark';
 export type RiskLevel = 'low' | 'medium' | 'high' | 'critical';
 
 export type AlertType =
-  | 'Wildfire'
-  | 'Flood'
-  | 'Operational Failure'
-  | 'Climate Anomaly';
+  | 'Queimada'
+  | 'Enchente'
+  | 'Falha Operacional'
+  | 'Anomalia Climatica';
 
-export type AlertSource = 'Satellite' | 'IoT Sensor' | 'Drone' | 'Weather API';
+export type AlertSource = 'Satelite' | 'Sensor IoT' | 'Drone' | 'API Climatica';
 
 export type RegionCategory = 'earth' | 'critical-infrastructure' | 'space';
 
@@ -63,4 +63,5 @@ export interface SimulationFormData {
 export interface TeamMember {
   name: string;
   role: string;
+  rm?: string;
 }

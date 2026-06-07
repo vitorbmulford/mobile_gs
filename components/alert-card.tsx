@@ -40,19 +40,19 @@ export function AlertCard({ alert, onResolve }: AlertCardProps) {
       </Text>
       <Text style={[styles.description, { color: theme.colors.textMuted }]}>{alert.description}</Text>
       <Text style={[styles.recommendation, { color: theme.colors.text }]}>
-        Recommended action: {alert.recommendation}
+        Acao recomendada: {alert.recommendation}
       </Text>
 
       <View style={styles.footer}>
         <Text style={[styles.origin, { color: theme.colors.textMuted }]}>
-          {alert.origin === 'simulation' ? 'Simulation event' : 'Mock orbital feed'}
+          {alert.origin === 'simulation' ? 'Evento simulado' : 'Feed orbital simulado'}
         </Text>
         {alert.resolved ? (
           <View style={[styles.done, { backgroundColor: theme.colors.chip }]}>
-            <Text style={[styles.doneLabel, { color: theme.colors.secondary }]}>Resolved</Text>
+            <Text style={[styles.doneLabel, { color: theme.colors.secondary }]}>Resolvido</Text>
           </View>
         ) : (
-          <Button label="Mark as resolved" onPress={onResolve} variant="secondary" />
+          <Button label="Marcar como resolvido" onPress={onResolve} variant="secondary" />
         )}
       </View>
     </View>

@@ -10,6 +10,12 @@ interface RegionStatusCardProps {
 
 export function RegionStatusCard({ region }: RegionStatusCardProps) {
   const { theme } = useAppTheme();
+  const categoryLabel =
+    region.category === 'earth'
+      ? 'Terrestre'
+      : region.category === 'critical-infrastructure'
+        ? 'Infraestrutura critica'
+        : 'Espacial';
 
   return (
     <View
@@ -22,21 +28,19 @@ export function RegionStatusCard({ region }: RegionStatusCardProps) {
       ]}>
       <View style={styles.header}>
         <Text style={[styles.name, { color: theme.colors.text }]}>{region.name}</Text>
-        <Text style={[styles.category, { color: theme.colors.secondary }]}>
-          {region.category.replace('-', ' ')}
-        </Text>
+        <Text style={[styles.category, { color: theme.colors.secondary }]}>{categoryLabel}</Text>
       </View>
       <Text style={[styles.status, { color: theme.colors.textMuted }]}>{region.status}</Text>
 
       <View style={styles.metrics}>
-        <Metric label="Temperature" value={`${region.temperature} C`} />
-        <Metric label="Humidity" value={`${region.humidity}%`} />
-        <Metric label="Risk index" value={`${region.riskIndex}/100`} />
+        <Metric label="Temperatura" value={`${region.temperature} C`} />
+        <Metric label="Umidade" value={`${region.humidity}%`} />
+        <Metric label="Indice de risco" value={`${region.riskIndex}/100`} />
       </View>
 
       <Text style={[styles.summary, { color: theme.colors.textMuted }]}>{region.summary}</Text>
       <Text style={[styles.source, { color: theme.colors.textMuted }]}>
-        {region.source} | Updated {region.updatedAt}
+        {region.source} | Atualizado em {region.updatedAt}
       </Text>
     </View>
   );
