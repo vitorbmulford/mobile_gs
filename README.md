@@ -1,3 +1,10 @@
+
+Vitor Bebiano Mulford – RM 555026
+Lorenzo Hayashi Mangini – RM 554901
+Milton Cezar Bacanieski – RM 555206
+Victório Maia Bastelli – RM 554723
+
+
 # 🛰️ DefenseShield Orbital Intelligence
 
 > **Transformando dados espaciais em inteligência para proteger o futuro.**

@@ -1,5 +1,7 @@
 import React from 'react';
-import { StyleSheet, Switch, Text, View } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { router } from 'expo-router';
+import { Pressable, StyleSheet, Switch, Text, View } from 'react-native';
 
 import { ScreenContainer } from '@/components/screen-container';
 import { teamMembersMock } from '@/data/riskMetrics.mock';
@@ -32,6 +34,47 @@ export default function SettingsScreen() {
             value={colorScheme === 'dark'}
           />
         </View>
+      </View>
+
+      <View
+        style={[
+          styles.card,
+          { backgroundColor: theme.colors.surface, borderColor: theme.colors.border },
+        ]}>
+        <Text style={[styles.cardTitle, { color: theme.colors.text }]}>Recursos academicos</Text>
+        <Pressable
+          onPress={() => router.push('/cybersecurity')}
+          style={({ pressed }) => [
+            styles.linkCard,
+            {
+              backgroundColor: theme.colors.surfaceStrong,
+              borderColor: theme.colors.border,
+              opacity: pressed ? 0.86 : 1,
+            },
+          ]}>
+          <View
+            style={[
+              styles.linkIcon,
+              { backgroundColor: theme.colors.chip, borderColor: theme.colors.border },
+            ]}>
+            <MaterialCommunityIcons
+              color={theme.colors.primary}
+              name="shield-lock-outline"
+              size={22}
+            />
+          </View>
+          <View style={styles.copy}>
+            <Text style={[styles.cardTitle, { color: theme.colors.text }]}>Cybersecurity</Text>
+            <Text style={[styles.cardText, { color: theme.colors.textMuted }]}>
+              Consulte a arquitetura de seguranca planejada para o MVP da Global Solution 2026.
+            </Text>
+          </View>
+          <MaterialCommunityIcons
+            color={theme.colors.textMuted}
+            name="chevron-right"
+            size={22}
+          />
+        </Pressable>
       </View>
 
       <View
@@ -84,6 +127,22 @@ const styles = StyleSheet.create({
   copy: {
     flex: 1,
     gap: 8,
+  },
+  linkCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 14,
+    borderRadius: 20,
+    borderWidth: 1,
+    padding: 14,
+  },
+  linkIcon: {
+    width: 44,
+    height: 44,
+    borderRadius: 16,
+    borderWidth: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   cardTitle: {
     fontSize: 18,

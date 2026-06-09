@@ -25,6 +25,7 @@ function RootNavigator() {
         <Stack.Screen name="monitoring" />
         <Stack.Screen name="simulation" />
         <Stack.Screen name="settings" />
+        <Stack.Screen name="cybersecurity" />
       </Stack>
       <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
     </ThemeProvider>
