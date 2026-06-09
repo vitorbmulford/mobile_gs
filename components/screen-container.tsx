@@ -113,8 +113,8 @@ const styles = StyleSheet.create({
   scrollContent: {
     gap: 18,
     paddingHorizontal: 20,
-    paddingTop: 88,
-    paddingBottom: 28,
+    paddingTop: 24,
+    paddingBottom: 118,
   },
   header: {
     gap: 8,

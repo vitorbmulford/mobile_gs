@@ -241,16 +241,14 @@ const styles = StyleSheet.create({
     padding: 18,
   },
   statusHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: 12,
+    gap: 10,
   },
   statusTitle: {
     fontSize: 20,
     fontWeight: '800',
   },
   statusBadge: {
+    alignSelf: 'flex-start',
     borderRadius: 999,
     paddingHorizontal: 12,
     paddingVertical: 8,
